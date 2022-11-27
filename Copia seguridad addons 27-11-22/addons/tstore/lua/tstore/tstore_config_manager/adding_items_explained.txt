@@ -1,0 +1,74 @@
+     	    Can't be assed to read? I don't blame you, watch this video: https://www.youtube.com/watch?v=U21puENDU7g
+
+	    YOU SHOUID WATCH THE VIDEO, IT'S 10 x EASIER AND I WALK YOU THROUGH EVERY STEP.
+
+	    Use this as a brief guideline.
+
+            StoreHandler.AddItem( 'my_second_store', {} ) -- AddItem expects the name of a store, it must be EXACTLY the same as what you
+            set inside of npc_config.lua (CASE SENSITIVE)     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   765611980585391085540
+            id - This is a number value and MUST be unique, it should NEVER match any other ID. This is VERY important, so please make sure it's not ever the same.
+            name - The name shown in the store for this item
+            ent - The entity given, if this is not a WEAPON or ENTITY then you do not need to add it.
+            model - The model to render in the store.
+            colors - The colour of the outline and foreground for this item inside the store.
+            description - Text shown when hovering over the item.
+            price - The amount of money/points this item costs.
+            page - The page that is should appear on. Please make sure the page exists in npc_config.lua for this item.
+            properties:
+                Now this one might seem a bit complicated, but it's really not.
+                    - permanent_item is the item permanent? (Only use for weapons and skins)
+                    - type is VERY important, it's how the store knows how to deal with the item on purchase.
+                    - Types you can use: Weapon, Entity, Shipment, Rank, Model, Prop. (Shipments ONLY work on DarkRP bases)
+                    - main_fov (Field of view) is used to pick how close the item is to the camera in the store, lower = closer, higher = more distant.
+                    - can_feature can this item be randomly picked to be featured?
+                    - force_set_feature This is used if you don't want a random selection of items, but rather always want the same featured items.
+            restricted_to - Usergroups are added here to disallow specific people buying the item.
+
+
+	    job_restrictions - Use this to restrict via Job Name (Make sure that the name of the Job in-game matches the exact id) Example:
+	    job_restrictions = { [ "Hobo" ] = true, [ "Mayor" ] = true }
+
+            Extra information:
+                It's important to note that each page can have 2 featured items, so with that in mind:
+                    if force_set_feature is true, ensure that the page has 2 items with force_set_feature.
+                    You can have as many can_feature items as you want, per page. It'll always pick 2.
+                    You can have pages with the same name in different NPCs, no problem.
+
+                    If you are adding a rank, then you MUST add rank = 'user_group_of_choice';
+                    (https://gyazo.com/278dbb3f2b0ddecea3a13bdfe14df823) here is what it should look like for a RANK.
+
+                Do not forget your commas if you add to the tables, or you'll fuck up the config and get an error.
+
+	Finally, here is two examples of premade items (ASSUMING Weapons is a valid page):
+
+
+        StoreHandler.AddItem( 'my_first_store', {
+            id = 1,
+            name = 'AK47 Redline (New)',
+            ent = 'ak47redline',
+            model = 'models/weapons/w_cloutak1.mdl',
+            colors = { foreground = Color( 255, 77, 77 ), outline = Color( 255, 56, 56 ) },
+            description = "It's an AK47 Redline.",
+            price = 50000,
+            page = 'Weapons',
+            properties = { 
+                permanent_item = false, type = 'Weapon',
+                main_fov = 30, can_feature = false, force_set_feature = false
+            }
+       } )
+
+       StoreHandler.AddItem( 'my_first_store', {
+            id = 2,
+            name = 'AK47 Vulcan',
+            ent = 'clt_akvlcn',
+            model = 'models/weapons/w_vulakclt.mdl',
+            colors = { foreground = Color( 56, 146, 172 ), outline = Color( 68, 213, 255 ) },
+            description = "It's an AK47 Vulcan.",
+            price = 75000,
+            page = 'Weapons',
+            properties = { 
+                permanent_item = true, type = 'Weapon',
+                main_fov = 30, can_feature = false, force_set_feature = false
+            }
+       } )

@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/entities/weapon_breachingcharge"
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+}

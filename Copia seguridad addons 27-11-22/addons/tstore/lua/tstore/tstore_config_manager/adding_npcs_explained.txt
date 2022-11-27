@@ -1,0 +1,34 @@
+	Can't be assed to read? I don't blame you, watch this video: https://www.youtube.com/watch?v=U21puENDU7g
+
+	YOU SHOUID WATCH THE VIDEO, IT'S 10 x EASIER AND I WALK YOU THROUGH EVERY STEP.
+
+	Use this as a brief guideline.
+
+	StoreHandler.CreateStore({
+                id = '', -- This is the ID, it must be lowercase, have no spaces and be completely unique. Do not use the same ID for any NPC you create.
+                overhead = '', -- The text above the head of the NPC.
+                model = '', -- The Model of the NPC.
+                description = "", -- The string located at the bottom of the store, keep it short.
+                position = { 
+                    { pos = Vector(), angle = Angle() } -- https://youtu.be/U21puENDU7g?t=58 (Watch this to understand what to do)
+                },
+                store_name = '', -- The name of the store on the left of the interface.
+                store_categories = { { tab = 'Weapons', feature_time = 30 } }, -- The name of the page, and the feature time in seconds.
+                spawn_chance = 100, -- What are the chance(s) that the NPC spawns?
+                restricted_to = {} -- Which usergroups can open the store?
+           })
+
+	Example of an actual created NPC:
+
+	StoreHandler.CreateStore({
+        id = 'my_first_store',
+        overhead = 'General Store',
+        model = 'models/Humans/Group03/Male_04.mdl',
+        description = "We sell a variety of different things, some are shit some are alright.",
+        position = { 
+            { pos = Vector( 1121.506958, -886.887634, -139.968750 ), angle = Angle( -0.439988, -179.319855, 0.000000 ) }
+        },
+        store_name = 'General Store',
+        store_categories = { { tab = 'Weapons', feature_time = 30 }, { tab = 'Ranks', feature_time = 60 * 5 }, { tab = 'Player Models', feature_time = 60 * 30 } },
+        spawn_chance = 100
+   	})

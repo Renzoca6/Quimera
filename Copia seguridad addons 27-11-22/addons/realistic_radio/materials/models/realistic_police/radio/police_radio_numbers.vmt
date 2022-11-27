@@ -1,0 +1,28 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/realistic_police/radio/police_radio_numbers"
+	"$decal" "1"
+	"$translucent" 1
+
+	
+	"$bumpmap" 	   "models\flat_normal"
+
+
+	"$halflambert" "1"
+	"$phong" "1"
+	"$phongboost" ".1"
+	"$phongexponent" "10"
+	"$phongfresnelranges" "[1 2 7]"
+	
+	
+	"$envmap" "env_cubemap"
+	"$envmapsaturation" ".5"
+	"$envmapcontrast" "1"
+	"$envmapfresnel" ".25"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[.02 .02 .02]"		
+
+	"$rimlight" "1"
+	"$rimlightexponent" "10"
+	"$rimlightboost" ".25"	
+}
